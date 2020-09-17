@@ -14,6 +14,10 @@ var PORT = process.env.PORT || 8080;
 // Requiring our models for syncing
 var db = require("./models");
 
+//Setting the handlebars extension to .hbs
+app.engine('.hbs', exphbs({ extname: '.hbs', defaultLayout: "main" }));
+app.set('view engine', '.hbs');
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
