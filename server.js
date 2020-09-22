@@ -28,10 +28,12 @@ app.use(express.static("public"));
 
 // Controllers
 // =============================================================
+
 require("./controller/authController")(app);
 require("./controller/usersController")(app);
 require("./controller/stocksController")(app);
 require("./controller/categoriesController")(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
