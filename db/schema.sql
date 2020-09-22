@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS bootstocks;
+CREATE DATABASE bootstocks;
