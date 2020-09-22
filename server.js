@@ -5,6 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var exphbs = require('express-handlebars')
 
 // Sets up the Express App
 // =============================================================
@@ -25,11 +26,14 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-// Routes
+// Controllers
 // =============================================================
-require("./controller/authsController.js")(app);
-require("./controller/categoryController.js")(app);
-require("./controller/stocksController.js")(app);
+
+require("./controller/authController")(app);
+require("./controller/usersController")(app);
+require("./controller/stocksController")(app);
+require("./controller/categoriesController")(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

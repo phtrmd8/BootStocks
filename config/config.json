@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "blogger",
-    "host": "127.0.0.1",
+    "password": "12345678",
+    "database": "bootstocks",
+    "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
   },
