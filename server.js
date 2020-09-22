@@ -29,8 +29,9 @@ app.use(express.static("public"));
 // Controllers
 // =============================================================
 require("./controller/authController")(app);
-// require("./routes/author-api-routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
+require("./controller/usersController")(app);
+require("./controller/stocksController")(app);
+require("./controller/categoriesController")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
