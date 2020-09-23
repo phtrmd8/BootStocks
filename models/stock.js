@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-module.exports = function(sequelize,DataTypes){
-  return {}
-}
-=======
 module.exports = function (sequelize, DataTypes) {
   const Stock = sequelize.define('Stock', {
     stock_symbol: {
@@ -40,4 +35,3 @@ module.exports = function (sequelize, DataTypes) {
 
   return Stock;
 };
->>>>>>> 9bcb067596255db664973ebfc85acbcb406c8252
