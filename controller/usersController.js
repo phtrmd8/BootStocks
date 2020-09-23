@@ -6,7 +6,7 @@ const config = require('config');
 
 
 module.exports = function (app) {
-  app.post('/users', async function (req, res) {
+  app.post('/api/users', async function (req, res) {
     const { username, password, firstname, lastname, } = req.body;
     try {
       let user = await db.User.findOne({ where: { username: username } });

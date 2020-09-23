@@ -26,9 +26,9 @@ module.exports = function (app) {
         // insert into our table. In this case we just we pass in an object with a text
         // and complete property (req.body)
         db.Stock.create({
-            user_id: req.body.user_id,
-            stock_name: req.body.stock_name,
-            category_id: req.body.category_id,
+            UserId: req.body.user_id,
+            stock_symbol: req.body.stock_symbol,
+            CategoryId: req.body.category_id,
             buying_price: req.body.buying_price,
             stock_gain: req.body.stock_gain,
             is_sold: req.body.is_sold,
@@ -64,9 +64,9 @@ module.exports = function (app) {
         // Update takes in an object describing the properties we want to update, and
         // we use where to describe which objects we want to update
         db.Stock.update({
-            user_id: req.body.user_id,
-            stock_name: req.body.stock_name,
-            category_id: req.body.category_id,
+            UserId: req.body.user_id,
+            stock_symbol: req.body.stock_symbol,
+            CategoryId: req.body.category_id,
             buying_price: req.body.buying_price,
             stock_gain: req.body.stock_gain,
             is_sold: req.body.is_sold,
