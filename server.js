@@ -26,6 +26,11 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+app.get("*", function(req, res) {
+    if (req.originalUrl === "/") res.render("index");
+    else res.render(req.originalUrl.slice(1));
+});
+
 // Controllers
 // =============================================================
 

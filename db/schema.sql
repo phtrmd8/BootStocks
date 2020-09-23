@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS bootstocks;
+CREATE DATABASE bootstocks;
+
 -- Drops the stock_db if it exists currently --
 DROP DATABASE IF EXISTS portfolio_db;
 -- Creates the "stock_db" database --
@@ -26,4 +29,4 @@ CREATE TABLE categories (
   category_name varchar(100),
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) 
-);
+ );
