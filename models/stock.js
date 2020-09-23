@@ -31,6 +31,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Stock.belongsTo(models.Category, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
 
   return Stock;

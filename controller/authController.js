@@ -4,17 +4,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-// console.log(
-// (async ()=> {
-//     const salt = await bcrypt.genSalt(10);
-//     password = await bcrypt.hash("donato",salt);
-//     const user = await db.User.create({username : 'jeorge',password : password, firstname: 'Jeorge',lastname: 'Donato',user_money: 12334});
-//     console.log(user);
-// })());
-
 module.exports = function (app) {
 
-    app.get('/', auth, async (req, res) => {
+
+    //ROUTE : /api/auth
+    //Checking Users if theyre logged in
+    //Type: GET
+    app.get('/api/auth', auth, async (req, res) => {
         try {
             const user = await db.User.findByPk(req.user.id);
             res.json(user);
@@ -24,7 +20,10 @@ module.exports = function (app) {
         }
     });
 
-    app.post("/", async (req, res) => {
+    //ROUTE : /api/auth
+    //Log in
+    //Type: POST
+    app.post("/api/auth", async (req, res) => {
         const { username, password } = req.body;
 
         try {
