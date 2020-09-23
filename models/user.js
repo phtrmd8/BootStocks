@@ -1,11 +1,11 @@
-module.exports = function(sequelize,DataTypes){
-    const User = sequelize.define('User',{
-        username : {
+module.exports = function (sequelize, DataTypes) {
+    const User = sequelize.define('User', {
+        username: {
             type: DataTypes.STRING,
-            allowNull : false,
+            allowNull: false,
             unique: true,
-            validate:{
-                len : [8,64]
+            validate: {
+                len: [6, 64]
             }
         },
         password: {
@@ -16,14 +16,14 @@ module.exports = function(sequelize,DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len : [1]
+                len: [1]
             }
         },
-        lastname : {
+        lastname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len : [1]
+                len: [1]
             }
         },
         profile_pic: {
@@ -34,5 +34,13 @@ module.exports = function(sequelize,DataTypes){
             type: DataTypes.INTEGER,
         }
     });
+    User.associate = function (models) {
+        User.hasMany(models.Category, {
+            onDelete: "cascade"
+        });
+        User.hasMany(models.Stock, {
+            onDelete: "cascade"
+        });
+    };
     return User;
-}
+};
