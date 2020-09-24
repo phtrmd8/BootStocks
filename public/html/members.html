@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BootStocks: View or Add Stocks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="stylesheets/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="../css/members.css">
+  <link rel="icon" href="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png">
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary main">
+    <img src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png" width="100px">
+    <a class="navbar-brand" href="#" style="font-size: 30px;">BootStocks</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"></div> -->
+    <div class="navbar-right">
+      <img class="userimage" width="100px">
+      <button class="btn logout-btn" type="logout">Logout</button>
+    </div>
+  </nav>
+    
+  <div class="sidenav">
+    <p class="sidebar-header">Stocks</p>
+    <a href="#">View</a>
+    <a href="#">Add</a>
+    <br>
+    <p class="sidebar-header">Categories</p>
+    <a href="#">View</a>
+    <a href="#">Add</a>
+  </div>
+
+  <div class="main">
+    <div class="jumbotron">
+      <h1 class="display-4" style="text-align: center;">Welcome Member!</h1>
+      <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
+    </div>
+    <div class="container">
+      <!-- <div class="row"> -->
+        <!-- <h2>Add a Stock to your Portfolio</h2>
+        <form class="add-stock">
+          <div class="form-group col-5">
+            <label for="stock">Stock Ticker</label>
+            <input type="text" class="form-control" id="stock" placeholder="Ticker">
+          </div>
+          <div class="form-group col-5">
+            <label for="quantity">Number of Shares</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity">
+          </div>
+          <button type="submit" class="btn btn-default">Buy!</button>
+        </form> -->
+        <h1 style="text-align: center;">Your Portfolio</h1>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead style="font-size: 15px;">
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Stock Symbol</th>
+                <th>Category</th>
+                <th>Stock Quantity</th>
+                <th>Buying Price</th>
+                <th>Current Price</th>
+                <th>Is Sold?</th>
+              </tr>
+        </thead>
+      <!-- </div> -->
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src=""></script>
+
+</body>
+
+</html>
