@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 
     //ROUTE : /api/auth
-    //Checking Users if theyre logged in
+    //Checking if user is logged in
     //Type: GET
     app.get('/api/auth', auth, async (req, res) => {
         try {

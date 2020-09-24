@@ -1,5 +1,13 @@
 $(document).ready(function () {
-  const token = localStorage.getItem('token');
+  //Appending JS Files
+  $.getScript("js/utils/isPublic.js")
+    .done(function (script, textStatus) {
+      console.log(textStatus);
+    })
+    .fail(function (jqxhr, settings, exception) {
+      console.log("Triggered ajaxError handler.");
+    });
+  //End Here
 
   $('.login').on('submit', function (e) {
     e.preventDefault();
