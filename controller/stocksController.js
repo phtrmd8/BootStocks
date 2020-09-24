@@ -30,6 +30,7 @@ module.exports = function (app) {
             stock_symbol: req.body.stock_symbol,
             CategoryId: req.body.category_id,
             buying_price: req.body.buying_price,
+            current_price: req.body.current_price,
             stock_gain: req.body.stock_gain,
             is_sold: req.body.is_sold,
             stock_quantity: req.body.stock_quantity
@@ -68,6 +69,7 @@ module.exports = function (app) {
             stock_symbol: req.body.stock_symbol,
             CategoryId: req.body.category_id,
             buying_price: req.body.buying_price,
+            current_price: req.body.current_price,
             stock_gain: req.body.stock_gain,
             is_sold: req.body.is_sold,
             stock_quantity: req.body.stock_quantity
