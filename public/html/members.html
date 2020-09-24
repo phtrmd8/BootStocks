@@ -26,7 +26,7 @@
     <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"></div> -->
     <div class="navbar-right">
       <img class="userimage" width="100px">
-      <button class="btn logout-btn" type="logout">Logout</button>
+      <button id='logout' class="btn logout-btn" type="logout">Logout</button>
     </div>
   </nav>
     
@@ -42,13 +42,15 @@
 
   <div class="main">
     <div class="jumbotron">
-      <h1 class="display-4" style="text-align: center;">Welcome Member!</h1>
+      <h1 class="display-4" style="text-align: center;">Welcome <span id='member-name'></span>!</h1>
       <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
     </div>
     <div class="container">
       <!-- <div class="row"> -->
         <!-- <h2>Add a Stock to your Portfolio</h2>
         <form class="add-stock">
+
+
           <div class="form-group col-5">
             <label for="stock">Stock Ticker</label>
             <input type="text" class="form-control" id="stock" placeholder="Ticker">
@@ -76,11 +78,18 @@
               </tr>
         </thead>
       <!-- </div> -->
+
+        <canvas id="stockChart" width="400" height="100"></canvas>
+      </div>
+
     </div>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+  <script type="text/javascript" src="../js/utils/setHeader.js"></script>
+  <script type="text/javascript" src="../js/members.js"></script>
 
 </body>
 
