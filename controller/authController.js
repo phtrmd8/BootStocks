@@ -13,6 +13,10 @@ module.exports = function (app) {
     app.get('/api/auth', auth, async (req, res) => {
         try {
             const user = await db.User.findByPk(req.user.id);
+            // console.log(user)
+            if(!user){
+                return res.status(400).json('Deleted User');
+            }
             res.json(user);
         } catch (err) {
             console.error(err.message);
@@ -32,13 +36,13 @@ module.exports = function (app) {
             if (!user) {
                 return res
                     .status(400)
-                    .json({ errors: [{ msg: 'Invalid Credentials' }] });
+                    .json('Invalid Credentials');
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
-                return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
+                return res.status(400).json('Invalid Credentials');
             }
 
             const payload = {

@@ -22,6 +22,11 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/html/signup.html"));
     });
 
+    //route loads members.html
+    app.get("/members", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/html/members.html"));
+    });
+
     // stocks route loads stocks.html
     app.get("/stocks/view", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/html/stocks.html"));

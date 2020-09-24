@@ -1,6 +1,7 @@
 $.get('/api/auth')
   .done(function (data) {
-    window.location.replace('/signup');
+    window.location.replace('/members');
+    console.log(data)
   }).fail(function (err) {
-    console.log('Public')
+    // console.log(err)
   });

@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 module.exports = async function (req, res, cb) {
-    console.log(req)
+    // console.log(req)
     const token = req.header('x-auth-token');
 
     //Check if token does not exists or created by session
