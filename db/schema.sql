@@ -11,13 +11,14 @@ USE portfolio_db;
 
 CREATE TABLE stocks (
   id serial,       -- int NOT NULL AUTO_INCREMENT --
-  user_id varchar(100) NOT NULL,
-  stock_name varchar(100) NOT NULL,
-  category_id varchar(100) NOT NULL,
-  buying_price ,
-  stock_gain ,
-  is_sold ,
-  stock_quantity ,
+  UserId varchar(100) NOT NULL,
+  stock_symbol varchar(100) NOT NULL,
+  CategoryId varchar(100) NOT NULL,
+  buying_price decimal(10,2),       -- store any values b/w -99999999.99 to 99999999.99
+  current_price decimal(10,2),
+  stock_gain decimal(8,2),
+  is_sold boolean,
+  stock_quantity integer,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id, category_id),
   UNIQUE (buying_price)
@@ -25,7 +26,7 @@ CREATE TABLE stocks (
 
 CREATE TABLE categories (
   id serial,
-  user_id integer NOT NULL,
+  UserId integer NOT NULL,
   category_name varchar(100),
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) 
