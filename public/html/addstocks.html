@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>BootStocks: View or Add Stocks</title>
+  <title>BootStocks: Build a Mock Portfolio!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -10,39 +10,41 @@
   <link href="stylesheets/style.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/members.css">
   <link rel="icon" href="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png">
-
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
     <a class="navbar-brand" href="#"><img src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png" width="100px"></a>
     <span style="font-size: 40px; color: white;">BootStocks</span>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="collapse navbar-collapse nav-right" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse navbar-text" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item nav-item-pad" style="font-size: 25px; color: white;">
-          <img class="userimage" width="100px" src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png">
+          <img class="userimage" width="100px" src="../images/test_userpic.jpg">
         </li>
         <li class="nav-item nav-item-pad" style="font-size: 20px; color: white; margin-top: 20px;">
           Mock Account Balance: $<span id="account-balance">10,000.00</span>
-          <br>
+          <br><br>
           <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
-            <select name="cars" id="cars">
+            <select name="navigate" id="dropdown">
             <option value="view-stocks">View Stocks</option>
             <option value="add-stocks">Add Stocks</option>
             <option value="view-categories">View Categories</option>
           </select>
           <input type="submit" value="Go">
         </li>
-        <li class="nav-item nav-item-pad" style="font-size: 25px; color: white; margin-top: 15px;">
-          <button id='logout' class="btn btn-light logout-btn" style="margin-top: 15px;" type="logout">Logout</button>
+        <li class="nav-item nav-item-pad">
+          <button id='logout' class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">Logout</button>
         </li>
       </ul>
     </div>
+
   </nav>
 
 
@@ -90,7 +92,6 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
