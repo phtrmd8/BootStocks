@@ -11,10 +11,14 @@ const auth = require("../middleware/auth");
 // =============================================================
 module.exports = function(app) {
   // GET route for getting all of the stocks
-  app.get("/api/stocks", function(req, res) {
+  app.get("/api/stocks", auth, function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Stock.findAll({}).then(function(dbStock) {
+    db.Stock.findAll({
+      where: { UserId: req.user.id },
+      include: [db.Category]
+    }).then(function(dbStock) {
       // We have access to the stocks as an argument inside of the callback function
+      // console.log(dbStock);
       res.json(dbStock);
     });
   });

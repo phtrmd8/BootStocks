@@ -14,7 +14,9 @@ module.exports = function(app) {
   // GET route for getting all of the categories
   app.get("/api/categories", auth, function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Category.findAll({}).then(function(dbCategory) {
+    db.Category.findAll({ where: { UserId: req.user.id } }).then(function(
+      dbCategory
+    ) {
       // We have access to the categories as an argument inside of the callback function
       res.json(dbCategory);
     });
