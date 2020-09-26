@@ -4,10 +4,12 @@
 .navbar-dark {
   background-color: #158cba !important;
 }
+
 /* .nav-right {
   position: absolute;
   right: 20px;
 } */
+
 .nav-item-pad {
   padding-left: 50px;
 }
