@@ -8,16 +8,20 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     buying_price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    current_price: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
     stock_gain: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
     is_sold: {
-      type: DataTypes.INTEGER,
-      default: 0
+      type: DataTypes.BOOLEAN,
+      default: false,
     },
     stock_quantity: {
       type: DataTypes.INTEGER,
