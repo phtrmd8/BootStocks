@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: left;
+}
+h2  {
+    font-size: 48px;
+    margin-right: auto;
+    margin-left: 0px;
+    text-align: left;
+    color: rgba(15, 15, 15, 0.495);
+}
+.container {
+  float: center;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
