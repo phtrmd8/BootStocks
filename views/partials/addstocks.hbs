@@ -1,0 +1,162 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+  <a class="navbar-brand" href="#"><img src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png" width="100px"></a>
+  <span style="font-size: 40px; color: white;">BootStocks</span>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse navbar-text" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item nav-item-pad" style="font-size: 25px; color: white;">
+        <img class="userimage" width="100px" src="../images/test_userpic.jpg">
+      </li>
+      <li class="nav-item nav-item-pad" style="font-size: 20px; color: white; margin-top: 20px;">
+        Mock Account Balance: $<span id="account-balance">10,000.00</span>
+        <br><br>
+        <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
+          <select name="navigate" id="dropdown">
+          <option value="view-stocks">View Stocks</option>
+          <option value="add-stocks">Add Stocks</option>
+          <option value="view-categories">View Categories</option>
+        </select>
+        <input type="submit" value="Go">
+      </li>
+      <li class="nav-item nav-item-pad">
+        <button id='logout' class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" style="font-size: 30px; color: white;">
+          BootStocks
+        </li>
+        <li class="nav-item active" style="font-size: 25px; color: white;">
+          <img class="userimage" width="100px" />
+        </li>
+        <li class="nav-item active" style="font-size: 25px; color: white;">
+          <button id="logout" class="btn btn-light logout-btn" type="logout">
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="jumbotron">
+  <h1 class="display-4" style="text-align: center;"><strong>Welcome <span id='member-name'></span>!</strong></h1>
+  <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
+</div>
+
+  <div class="container">
+    <h1 style="margin-top: 40px;" class="text-center">
+      Add a Stock to your Portfolio
+    </h1>
+    <div class="row">
+      <div class="col-6">
+        <br />
+        <form class="add-stock-form">
+          <div
+            style="display: none"
+            id="alert"
+            class="alert alert-danger"
+            role="alert"
+          >
+            <span
+              class="glyphicon glyphicon-exclamation-sign"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control "
+              id="stock-symbol"
+              placeholder="Stock Search"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-primary"
+                id="search-ticker-btn"
+                type="button"
+              >
+                Search Stock/Ticker
+              </button>
+            </div>
+          </div>
+          <div class="stockRestForm">
+            <div class="form-group mt-2">
+              <input
+                type="input"
+                disabled="disabled"
+                class="form-control "
+                id="stock-ticker"
+                placeholder="Stock Symbol"
+              />
+            </div>
+            <div class="input-group mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$</span>
+              </div>
+              <input
+                type="input"
+                disabled="disabled"
+                class="form-control "
+                id="buying-price"
+                placeholder="Buying Price"
+              />
+            </div>
+            <div class="input-group mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Category</span
+                >
+              </div>
+              <select class="form-control" id="category-select"></select>
+            </div>
+            <div class="form-group mt-2">
+              <input
+                type="number"
+                class="form-control "
+                id="quantity"
+                placeholder="Quantity"
+              />
+            </div>
+            <div class="submit-container float-right">
+              <div
+                id="spinner-submit"
+                class="spinner-border text-primary"
+                role="status"
+                style="display: none;"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
+              <button
+                type="submit"
+                id="submit-stock-btn"
+                class="btn btn-secondary "
+              >
+                Submit Order
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-6">
+        <div class="stockSelectDiv form-group" style="display: none;">
+          <label for="exampleFormControlSelect2"
+            >Select from these Symbols</label
+          >
+          <select multiple class="form-control" id="multipleStockSelect">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>

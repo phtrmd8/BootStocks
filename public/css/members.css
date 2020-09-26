@@ -1,9 +1,10 @@
 .navbar {
   font-size: 14px;
 }
-.navbar-dark {
+
+/* .navbar-dark {
   background-color: #158cba !important;
-}
+} */
 
 /* .nav-right {
   position: absolute;
@@ -16,12 +17,13 @@
 .jumbotron {
   padding: 1.5rem 2rem;
 }
+
 .userimage {
   border: white solid 4px
 }
 .navbar .navbar-collapse {
   text-align: center;
-}
+
 .chart-input {
   margin-right: 20px;
 }
