@@ -14,7 +14,6 @@
 .nav-item-pad {
   padding-left: 50px;
 }
-
 .jumbotron {
   padding: 1.5rem 2rem;
 }
@@ -22,10 +21,8 @@
 .userimage {
   border: white solid 4px
 }
-
 .navbar .navbar-collapse {
   text-align: center;
-}
 
 .chart-input {
   margin-right: 20px;
