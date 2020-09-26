@@ -22,19 +22,19 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/html/signup.html"));
     });
 
-    //route loads members.html
+    // stock route loads its view
     app.get("/members", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/html/members.html"));
     });
 
-    // stocks route loads stocks.html
+    // route loads addstocks.html
     app.get("/stocks/view", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/html/stocks.html"));
+        res.sendFile(path.join(__dirname, "../public/html/addstocks.html"));
     });
 
-    // categories route loads categories.html
+    // categories route loads viewcats.html
     app.get("/categories/view", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/html/categories.html"));
+        res.sendFile(path.join(__dirname, "../public/html/viewcats.html"));
     });
 
     app.get("/stocks/add", function (req, res) {
