@@ -35,43 +35,38 @@
     </div>
   </nav>
 
-  
-  <div class="jumbotron">
-    <h1 class="display-4" style="text-align: center;"><strong>Welcome <span id='member-name'></span>!</strong></h1>
-    <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
-    <br> 
-    <div style="align-items: center; text-align: center;">
-      <span style="font-size: 25px">Stocks: </span>
-      <button id='logout' class="btn btn-light btn-link" type="logout">View</button>
-      <button id='logout' class="btn btn-light btn-link" type="logout">Add</button>
-    </div>
-    <br>
-    <div style="align-items: center; text-align: center;">
-      <span style="font-size: 25px">Categories: </span>
-      <button id='logout' class="btn btn-light btn-link" type="logout">View</button>
-      <button id='logout' class="btn btn-light btn-link" type="logout">Add</button>
-    </div>
-  </div>
-  
-  <div class="container">
-    <h1 style="margin-top: 40px;">Add a Stock to your Portfolio</h1>
-    <br>
-    <form class="add-stock">
-      <div class="form-group">
-        <label for="stock">Stock Ticker</label>
-        <input type="text" class="form-control col-4" id="stock" placeholder="Ticker">
+  <div>
+    <div class="jumbotron">
+      <h1 class="display-4" style="text-align: center;"><strong>Welcome <span id='member-name'></span>!</strong></h1>
+      <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
+      <br> 
+      <div style="align-items: center; text-align: center;">
+        <span style="font-size: 25px">Stocks: </span>
+        <button id='logout' class="btn btn-light btn-link" type="logout">View</button>
+        <button id='logout' class="btn btn-light btn-link" type="logout">Add</button>
       </div>
-      <div class="form-group">
-        <label for="quantity">Number of Shares</label>
-        <input type="number" class="form-control col-4" id="quantity" placeholder="Quantity">
+      <br>
+      <div style="align-items: center; text-align: center;">
+        <span style="font-size: 25px">Categories: </span>
+        <button id='logout' class="btn btn-light btn-link" type="logout">View</button>
+        <button id='logout' class="btn btn-light btn-link" type="logout">Add</button>
       </div>
-      <button type="button" class="btn btn-secondary">Submit Order</button>
-    </form>
+    </div>
+    
+    <div class="container">
+      <h1 style="margin-top: 40px;">Add a Category to Sort By</h1>
+      <br>
+      <form class="add-category">
+        <div class="form-group">
+          <label for="stock">Category Name</label>
+          <input type="text" class="form-control col-4" id="add-category" placeholder="Category">
+        </div>
+        <button type="button" class="btn btn-secondary">Add Category</button>
+      </form>
+      
+    </div>
+    
   </div>
-
-  <input type="text" id="ticker-input" style="float: right;" placeholder="ticker">
-  <canvas id="stockChart" width="400" height="100"></canvas>
-
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

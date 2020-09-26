@@ -51,11 +51,15 @@
   right: 30px;
 }
 
-.logout-btn {
-  font-size: 15px;
-  color: white;
-}
-
 .navbar-dark {
   background-color: #158cba !important;
 }
+
+.btn-link {
+  margin-left: 10px;
+}
+
+/* .logout-btn {
+  position: absolute;
+  right: 20px;
+} */
