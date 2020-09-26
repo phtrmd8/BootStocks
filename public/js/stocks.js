@@ -83,7 +83,7 @@ $(document).ready(function() {
     try {
       const stockData = await $.post("/api/stocks", newStock);
       // console.log(stockData);
-      window.location.replace("/stock/view");
+      window.location.replace("/members");
     } catch (error) {
       console.log(error);
     }

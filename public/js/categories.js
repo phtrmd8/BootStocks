@@ -6,7 +6,14 @@
 
 $(document).ready(function () {
     /* global moment */
-
+   (async function() {
+      try {
+        await $.getScript("/js/utils/isPrivate.js");
+      } catch (error) {
+       console.log(error);
+      }
+    })();
+  
     // categoryContainer holds all categories
     var categoryContainer = $(".category-container");
     var stockCategorySelect = $("#category");
@@ -106,3 +113,4 @@ $(document).ready(function () {
         window.location.href = "/cms?categories_id=" + currentCategory.id;
     }
 });
+
