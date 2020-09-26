@@ -59,7 +59,15 @@
   margin-left: 10px;
 }
 
-/* .logout-btn {
+/* .nav-right {
   position: absolute;
   right: 20px;
 } */
+
+.nav-item-pad {
+  padding-left: 50px;
+}
+
+.jumbotron {
+  padding: 1.5rem 2rem;
+}
