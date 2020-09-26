@@ -1,5 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
-  const Stock = sequelize.define('Stock', {
+module.exports = function(sequelize, DataTypes) {
+  const Stock = sequelize.define("Stock", {
     stock_symbol: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,27 +9,31 @@ module.exports = function (sequelize, DataTypes) {
     },
     buying_price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: false
     },
     current_price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: false
     },
     stock_gain: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: false
+    },
+    total: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
     },
     is_sold: {
       type: DataTypes.BOOLEAN,
-      default: false,
+      default: false
     },
     stock_quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     }
   });
 
-  Stock.associate = function (models) {
+  Stock.associate = function(models) {
     Stock.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
