@@ -37,4 +37,12 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/html/categories.html"));
     });
 
+    app.get("/stocks/add", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/html/addstocks.html"));
+    });
+
+    app.get("/categories/add", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/html/addcats.html"));
+    });
+
 };
