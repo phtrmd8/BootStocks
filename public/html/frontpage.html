@@ -21,6 +21,10 @@
       <div class="col-md-6 col-md-offset-3">
         <h2>Log-in to your Account</h2>
         <form class="login">
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+              </div>
           <div class="form-group">
             <label for="Username">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Username">
@@ -32,10 +36,11 @@
           <button type="submit" class="btn btn-default">Login</button>
         </form>
         <br />
-        <p>Or sign-up for a new account <a href="/">here</a></p>
+        <p>Or sign-up for a new account <a href="/signup">here</a></p>
       </div>
     </div>
   </div>
+
   <section>
   <body>
     <div class="row">
@@ -45,6 +50,7 @@
         <img src="../images/download.jpeg" alt="download"
         style="width: 400px; height: 400px;"></a>
         <br>Check me out!
+
     </div>
     <div class="column">
       <h3>Learn How to Grown Your Wealth in the Stock Market with This Training</h3>
@@ -75,6 +81,7 @@
     <div class="footer">
       <p>Thank you for Visiting BootStocks!</p>
     </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="../js/utils/setHeader.js"></script>
   <script type="text/javascript" src="../js/login.js"></script>
