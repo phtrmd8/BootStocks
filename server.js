@@ -26,10 +26,10 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-app.get("*", function(req, res) {
-    if (req.originalUrl === "/") res.render("index");
-    else res.render(req.originalUrl.slice(1));
-});
+// app.get("*", function(req, res) {
+//     if (req.originalUrl === "/") res.render("index");
+//     else res.render(req.originalUrl.slice(1));
+// });
 
 // Controllers
 // =============================================================
@@ -38,6 +38,7 @@ require("./controller/authController")(app);
 require("./controller/usersController")(app);
 require("./controller/stocksController")(app);
 require("./controller/categoriesController")(app);
+require("./controller/htmlController")(app);
 
 
 // Syncing our sequelize models and then starting our Express app

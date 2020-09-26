@@ -4,18 +4,24 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-
+//Register User
+//Route : /api/users
 module.exports = function (app) {
-  app.post('/users', async function (req, res) {
-    const { username, password, firstname, lastname, } = req.body;
+  app.post('/api/users', async function (req, res) {
+    const { username, password,email, firstname, lastname, cpassword } = req.body;
+
+    if(password !== cpassword){
+      return res.status(400).json("Passwords didn't match");
+    }
+
     try {
       let user = await db.User.findOne({ where: { username: username } });
       if (user) {
-        return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
+        return res.status(400).json('User already exists');
       }
       const salt = await bcrypt.genSalt(10);
       const hashedP = await bcrypt.hash(password, salt);
-      let createdUser = await db.User.create({ username, password: hashedP, firstname, lastname, user_money: 12344123 });
+      let createdUser = await db.User.create({ username,email, password: hashedP, firstname, lastname, user_money: 10000 });
 
       const payload = {
         user: {

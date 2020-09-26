@@ -4,19 +4,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-// console.log(
-// (async ()=> {
-//     const salt = await bcrypt.genSalt(10);
-//     password = await bcrypt.hash("donato",salt);
-//     const user = await db.User.create({username : 'jeorge',password : password, firstname: 'Jeorge',lastname: 'Donato',user_money: 12334});
-//     console.log(user);
-// })());
-
 module.exports = function (app) {
 
-    app.get('/', auth, async (req, res) => {
+
+    //ROUTE : /api/auth
+    //Checking if user is logged in
+    //Type: GET
+    app.get('/api/auth', auth, async (req, res) => {
         try {
             const user = await db.User.findByPk(req.user.id);
+            // console.log(user)
+            if(!user){
+                return res.status(400).json('Deleted User');
+            }
             res.json(user);
         } catch (err) {
             console.error(err.message);
@@ -24,7 +24,10 @@ module.exports = function (app) {
         }
     });
 
-    app.post("/", async (req, res) => {
+    //ROUTE : /api/auth
+    //Log in
+    //Type: POST
+    app.post("/api/auth", async (req, res) => {
         const { username, password } = req.body;
 
         try {
@@ -33,13 +36,13 @@ module.exports = function (app) {
             if (!user) {
                 return res
                     .status(400)
-                    .json({ errors: [{ msg: 'Invalid Credentials' }] });
+                    .json('Invalid Credentials');
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
-                return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
+                return res.status(400).json('Invalid Credentials');
             }
 
             const payload = {
