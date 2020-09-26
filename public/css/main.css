@@ -1,24 +1,22 @@
 body {
-    background-color: rgba(243, 240, 236, 0.829);
+    background-color: white;
     height: auto;
     background-repeat: no-repeat;
     background-position: center;
-    padding-left: 25px;
-    padding-right: 25px; 
   }
+nav {
+  background-color: #158cba;
+}
+img {
+  padding-left: 10px;
+}
 h1  {
     font-size: 78px;
     font-style: unset;
     margin-right: 0px;
     margin-left: 0px;
     text-align: center;
-    color: rgba(21, 20, 20, 0.208);  
-}
-img {
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+    color: black;  
 }
 h2  {
     font-size: 48px;
@@ -33,6 +31,18 @@ h3  {
 h4  {
   text-align: center;
 }
+.container {
+  float: center;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .column {
   float: left;
   width: 33.33%;
@@ -43,9 +53,6 @@ h4  {
   content: "";
   clear: both;
   display: table;
-}
-img {
-  border: 5px solid gray;
 }
 video {
   margin-bottom: 50%;
