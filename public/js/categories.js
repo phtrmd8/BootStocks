@@ -113,4 +113,3 @@ $(document).ready(function () {
         window.location.href = "/cms?categories_id=" + currentCategory.id;
     }
 });
-
