@@ -5,10 +5,12 @@
   <title>BootStocks: Build a Mock Portfolio!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/members.css">
   <link rel="icon" href="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -18,10 +20,11 @@
     <a class="navbar-brand" href="#"><img src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png" width="100px"></a>
     <span style="font-size: 40px; color: white;">BootStocks</span>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse navbar-text" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item nav-item-pad" style="font-size: 25px; color: white;">
@@ -31,7 +34,7 @@
           Mock Account Balance: $<span id="account-balance">10,000.00</span>
           <br><br>
           <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
-            <select name="navigate" id="dropdown">
+          <select name="navigate" id="dropdown">
             <option value="home">Home</option>
             <option value="add-stocks">Add Stocks</option>
             <option value="view-categories">View Categories</option>
@@ -39,7 +42,8 @@
           <input type="submit" value="Go">
         </li>
         <li class="nav-item nav-item-pad">
-          <button id='logout' class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">Logout</button>
+          <button id='logout' class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">Logout <i
+              class="fa fa-sign-out" aria-hidden="true"></i></button>
         </li>
       </ul>
     </div>
@@ -50,12 +54,12 @@
     <h1 class="display-4" style="text-align: center;"><strong>Welcome <span id='member-name'></span>!</strong></h1>
     <p class="lead" style="text-align: center;">View your portfolio, or add/sell stocks</p>
   </div>
-  
+
   <div class="container" style="text-align: center;">
 
     <form>
       <label for="categories">Select a Stock Category:</label>
-      <select name="cars" id="cars">
+      <select name="stocks" id="stocks">
         <option value="high-risk">High Risk</option>
         <option value="low-risk">Low Risk</option>
         <option value="dividend">Dividend</option>
@@ -65,7 +69,7 @@
 
     <br>
     <br>
-    
+
     <div class="container">
       <h1 style="text-align: center;">Category: <span id='category-name'></span></h1>
       <br>
@@ -89,11 +93,15 @@
 
   </div>
 
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -101,10 +109,6 @@
   <script type="text/javascript" src="../js/utils/setHeader.js"></script>
   <script type="text/javascript" src="../js/members.js"></script>
 
-
 </body>
 
 </html>
-
-
-
