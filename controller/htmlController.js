@@ -12,18 +12,18 @@ module.exports = function(app) {
 
   // index route loads frontpage.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/frontpage.html"));
+    res.render("frontpage");
   });
 
   // signup route loads signup.html
   app.get("/signup", function(req, res) {
     // console.log(req)
-    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+    res.render("signup");
   });
 
   //route loads members.html
   app.get("/members", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/members.html"));
+    res.render("members", { layout: "member" });
   });
 
   // stocks route loads stocks.html
@@ -33,11 +33,11 @@ module.exports = function(app) {
 
   // categories route loads categories.html
   app.get("/categories/view", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/viewcats.html"));
+    res.render('categories', {layout:'main'})
   });
 
   app.get("/stocks/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/addstocks.html"));
+    res.render('addstocks', {layout: 'member'})
   });
 
   app.get("/categories/add", function(req, res) {

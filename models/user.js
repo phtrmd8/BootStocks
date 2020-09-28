@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     user_money: {
-      type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL(10, 2)
     }
   });
   User.associate = function(models) {
