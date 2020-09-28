@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Category = sequelize.define("Category", {
     name: {
       type: DataTypes.STRING,
@@ -8,14 +8,15 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
-  Category.associate = function(models) {
+  Category.associate = function (models) {
     Category.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
+    Category.hasMany(models.Stock, {
+      onDelete: "cascade"
+    });
   };
-
   return Category;
 };

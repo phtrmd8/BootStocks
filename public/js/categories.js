@@ -1,11 +1,10 @@
 // view all stocks under a particular category
-// view all categories in viewcats page
+// view all categories in viewcats page...
 //  edit (add or change name) button
 
 
 
 $(document).ready(function () {
-    /* global moment */
     (async function () {
         try {
             await $.getScript("/js/utils/isPrivate.js");
