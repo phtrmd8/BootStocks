@@ -20,7 +20,7 @@ h1  {
 }
 button  {
   background-color: grey; /* Green */
-  color: black;
+  color: white;
   border: round 2px solid #e7e7e7
 }
 button :hover {background-color: #e7e7e7;}
@@ -82,3 +82,7 @@ video {
 .jumbotron {
   padding: 1.5rem 2rem;
 }
+
+.navbar .navbar-collapse {
+  text-align: center;
+} 
