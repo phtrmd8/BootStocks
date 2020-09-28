@@ -2,15 +2,6 @@
   font-size: 14px;
 }
 
-/* .navbar-dark {
-  background-color: #158cba !important;
-} */
-
-/* .nav-right {
-  position: absolute;
-  right: 20px;
-} */
-
 .nav-item-pad {
   padding-left: 50px;
 }
@@ -21,8 +12,10 @@
 .userimage {
   border: white solid 4px
 }
+
 .navbar .navbar-collapse {
   text-align: center;
+} 
 
 .chart-input {
   margin-right: 20px;
