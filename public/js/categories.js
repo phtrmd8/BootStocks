@@ -6,14 +6,14 @@
 
 $(document).ready(function () {
     /* global moment */
-   (async function() {
-      try {
-        await $.getScript("/js/utils/isPrivate.js");
-      } catch (error) {
-       console.log(error);
-      }
+    (async function () {
+        try {
+            await $.getScript("/js/utils/isPrivate.js");
+        } catch (error) {
+            console.log(error);
+        }
     })();
-  
+
     // categoryContainer holds all categories
     var categoryContainer = $(".category-container");
     var stockCategorySelect = $("#category");
@@ -56,7 +56,7 @@ $(document).ready(function () {
     }
 
 
-// =========== (change cat_name)
+    // =========== (change cat_name)
     // Getting the initial list of Categories
     getCategories();
 

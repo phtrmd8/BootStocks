@@ -1,13 +1,10 @@
+-- Drops the bootstocks_db if it exists currently --
 DROP DATABASE IF EXISTS bootstocks;
+-- Creates the "bootstocks_db" database --
 CREATE DATABASE bootstocks;
 
--- Drops the stock_db if it exists currently --
-DROP DATABASE IF EXISTS portfolio_db;
--- Creates the "stock_db" database --
-CREATE DATABASE portfolio_db;
-
--- Makes it so all of the following code will affect stock_db --
-USE portfolio_db;
+-- Makes it so all of the following code will affect bootstocks_db --
+USE bootstocks;
 
 CREATE TABLE stocks (
   id serial,       -- int NOT NULL AUTO_INCREMENT --
