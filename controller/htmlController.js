@@ -12,18 +12,18 @@ module.exports = function(app) {
 
   // index route loads frontpage.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/frontpage.html"));
+    res.render("frontpage");
   });
 
   // signup route loads signup.html
   app.get("/signup", function(req, res) {
     // console.log(req)
-    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+    res.render("signup");
   });
 
   //route loads members.html
   app.get("/members", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/members.html"));
+    res.render("members", { layout: "member" });
   });
 
   // stocks route loads stocks.html

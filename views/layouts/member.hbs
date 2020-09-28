@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BootStocks: Build a Mock Portfolio!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/members.css">
+  <link rel="icon" href="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#"><img src="../images/Screen Shot 2020-09-20 at 2.48.21 PM.png" width="100px" /></a>
+    <span style="font-size: 40px; color: white;">BootStocks</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-text" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item nav-item-pad" style="font-size: 25px; color: white;">
+          <img class="userimage" width="100px" src="../images/test_userpic.jpg" />
+        </li>
+        <li class="nav-item nav-item-pad" style="font-size: 20px; color: white; margin-top: 20px;">
+          Mock Account Balance: $<span id="account-balance"></span>
+          <br />
+          <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
+          <select name="navigate" id="dropdown-navigate">
+            <option selected value="home">Home</option>
+            <option value="add-stocks">Add Stocks</option>
+            <option value="view-categories">View Categories</option>
+          </select>
+        </li>
+        <li class="nav-item nav-item-pad">
+          <button id="logout" class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <h1 class="display-4" style="text-align: center;">
+      <strong>Welcome <span id="member-name"></span>!</strong>
+    </h1>
+    <p class="lead" style="text-align: center;">
+      View your portfolio, or add/sell stocks
+    </p>
+  </div>
+
+  {{{ body }}}
+
+</body>
+
+</html>

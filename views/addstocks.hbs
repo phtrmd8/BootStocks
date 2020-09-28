@@ -1,0 +1,81 @@
+<div class="container">
+    <h1 style="margin-top: 40px;" class="text-center">
+        Add a Stock to your Portfolio
+    </h1>
+    <div class="row">
+        <div class="col-6">
+            <br />
+            <form class="add-stock-form">
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control " id="stock-symbol" placeholder="Stock Search" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="search-ticker-btn" type="button">
+                            Search Stock/Ticker
+                        </button>
+                    </div>
+                </div>
+                <div class="stockRestForm">
+                    <div class="form-group mt-2">
+                        <input type="input" disabled="disabled" class="form-control " id="stock-ticker"
+                            placeholder="Stock Symbol" />
+                    </div>
+                    <div class="input-group mt-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">$</span>
+                        </div>
+                        <input type="input" disabled="disabled" class="form-control " id="buying-price"
+                            placeholder="Buying Price" />
+                    </div>
+                    <div class="input-group mt-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Category</span>
+                        </div>
+                        <select class="form-control" id="category-select"></select>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="number" class="form-control " id="quantity" placeholder="Quantity" />
+                    </div>
+                    <div class="submit-container float-right">
+                        <div id="spinner-submit" class="spinner-border text-primary" role="status"
+                            style="display: none;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <button type="submit" id="submit-stock-btn" class="btn btn-secondary ">
+                            Submit Order
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-6 mt-3">
+            <div class="stockSelectDiv form-group" style="display: none;">
+                <label for="exampleFormControlSelect2">Select from these Symbols</label>
+                <select multiple class="form-control" id="multipleStockSelect">
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+<script src="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js"></script>
+<link href="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css"
+    rel="stylesheet" />
+<script type="text/javascript" src="../js/utils/setHeader.js"></script>
+<script type="text/javascript" src="../js/stocks.js"></script>

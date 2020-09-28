@@ -15,32 +15,45 @@ $(document).ready(function() {
     }, 1000);
   }
 
-  $("#search-ticker-btn").on("click", function(e) {
-    const stockSymbol = $("#stock-symbol")
-      .val()
-      .trim();
+  const disableSubBtn = () => {
     $("#submit-stock-btn")
       .addClass("disabled")
       .attr({ "aria-disabled": true, disabled: "disabled" });
     $("#spinner-submit").show();
+  };
+
+  const unDisableSubBtn = () => {
+    $("#submit-stock-btn")
+      .removeClass("disabled")
+      .removeAttr("aria-disabled disabled");
+    $("#spinner-submit").hide();
+  };
+
+  $("#search-ticker-btn").on("click", function(e) {
+    const stockSymbol = $("#stock-symbol")
+      .val()
+      .trim();
+    disableSubBtn();
     $.get(
       `https://cors-anywhere.herokuapp.com/https://api.tiingo.com/tiingo/utilities/search/${stockSymbol}?token=32eb05433ffa0f75d6c5b3ba881d7b14f1c2a5f5`
     )
       .then(function(data) {
-        let multiSelect = "";
-        data.forEach(d => {
-          return (multiSelect += `<option value='${d.ticker}'>${d.ticker} | ${d.name}</option>`);
-        });
-        // console.log(multiSelect)
-        $(".stockSelectDiv").show();
-        $("#multipleStockSelect").html(multiSelect);
-        $("#submit-stock-btn")
-          .removeClass("disabled")
-          .removeAttr("aria-disabled disabled");
-        $("#spinner-submit").hide();
+        if (data.length > 0) {
+          let multiSelect = "";
+          data.forEach(d => {
+            return (multiSelect += `<option value='${d.ticker}'>${d.ticker} | ${d.name}</option>`);
+          });
+          // console.log(multiSelect)
+          $(".stockSelectDiv").show();
+          $("#multipleStockSelect").html(multiSelect);
+        } else {
+          stateAlert("Invalid Ticker!");
+        }
+        unDisableSubBtn();
       })
       .catch(function(err) {
-        console.log("Invalid Ticker");
+        stateAlert("Invalid Ticker!");
+        unDisableSubBtn();
       });
   });
 
@@ -63,20 +76,20 @@ $(document).ready(function() {
     const symbol = $(this)
       .children("option:selected")
       .val();
-    $("#stock-ticker").val(symbol);
-    $("#submit-stock-btn")
-      .addClass("disabled")
-      .attr({ "aria-disabled": true, disabled: "disabled" });
-    $("#spinner-submit").show();
-    const stockData = await $.get(
-      `https://cors-anywhere.herokuapp.com/https://api.tiingo.com/tiingo/daily/${symbol}/prices?token=32eb05433ffa0f75d6c5b3ba881d7b14f1c2a5f5`
-    );
-    $("#submit-stock-btn")
-      .removeClass("disabled")
-      .removeAttr("aria-disabled disabled");
-    $("#spinner-submit").hide();
-    // console.log(stockData);
-    $("#buying-price").val(stockData[0].adjClose);
+
+    try {
+      disableSubBtn();
+      const stockData = await $.get(
+        `https://cors-anywhere.herokuapp.com/https://api.tiingo.com/tiingo/daily/${symbol}/prices?token=32eb05433ffa0f75d6c5b3ba881d7b14f1c2a5f5`
+      );
+      unDisableSubBtn();
+      // console.log(stockData);
+      $("#stock-ticker").val(symbol);
+      $("#buying-price").val(stockData[0].adjClose);
+    } catch (error) {
+      stateAlert("Server Error");
+      unDisableSubBtn();
+    }
   });
 
   async function addStock(newStock) {
@@ -85,7 +98,8 @@ $(document).ready(function() {
       // console.log(stockData);
       window.location.replace("/members");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      stateAlert("Invalid Transaction!");
     }
   }
 
