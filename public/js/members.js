@@ -153,12 +153,13 @@ $(document).ready(function() {
           $(".stock-tbody").html(tbodyHtml);
           $("#span-result").empty();
         } else {
+          $(".stock-tbody").empty();
           $("#span-result").html("No Results to display!");
         }
         $("#stock-table-display").show();
       } else {
         $("#stock-table-display").hide();
-        // $("#span-result").html("No Results to display!");
+        $("#span-result").html("No Results to display!");
       }
     } catch (error) {
       console.log(error);
