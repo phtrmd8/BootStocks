@@ -12,8 +12,8 @@ $(document).ready(function () {
     const firstname = $('#firstname').val().trim();
     const lastname = $('#lastname').val().trim();
     const username = $('#username').val().trim();
-    const email = $('#email-input').val().trim();
-    const userData = { firstname: firstname, lastname: lastname, username: username, email: email, password: password.val().trim(), cpassword: cpassword.val().trim() };
+    // const email = $('#email-input').val().trim();
+    const userData = { firstname: firstname, lastname: lastname, username: username, password: password.val().trim(), cpassword: cpassword.val().trim() };
     createUser(userData);
   });
 

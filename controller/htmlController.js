@@ -26,21 +26,12 @@ module.exports = function(app) {
     res.render("members", { layout: "member" });
   });
 
-  // stocks route loads stocks.html
-  app.get("/stocks/view", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/stocks.html"));
-  });
-
   // categories route loads categories.html
   app.get("/categories/view", function(req, res) {
-    res.render('categories', {layout:'main'})
+    res.render("categories", { layout: "member" });
   });
 
   app.get("/stocks/add", function(req, res) {
-    res.render('addstocks', {layout: 'member'})
-  });
-
-  app.get("/categories/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/addcats.html"));
+    res.render("addstocks", { layout: "member" });
   });
 };

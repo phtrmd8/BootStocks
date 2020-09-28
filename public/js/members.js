@@ -64,6 +64,12 @@ $(document).ready(function() {
       })
       .catch(function(err) {
         console.log("Invalid Ticker");
+        $(".invalid-alert")
+          .html("Invalid Symbol")
+          .show();
+        setTimeout(() => {
+          $(".invalid-alert").hide();
+        }, 1200);
       });
   };
 
@@ -110,7 +116,16 @@ $(document).ready(function() {
                 <td>$ ${s.buying_price}</td>
                 <td>$ ${s.total}</td>
                 <td id="stock-gain-${s.id}">$ ${s.stock_gain}</td>
-                <td><a class="sync-stock btn btn-success btn-sm" data-symbol="${s.stock_symbol}" data-id="${s.id}">Sync</a> <a class="sell-stock btn btn-danger btn-sm" data-symbol="${s.stock_symbol}" data-id="${s.id}">Sell</a></td>
+                <td>${moment(s.createdAt).format("MMM D, YYYY")}</td>
+                <td><a class="sync-stock btn btn-success btn-sm" data-symbol="${
+                  s.stock_symbol
+                }" data-id="${
+              s.id
+            }"><i class="fa fa-refresh" aria-hidden="true"></i> Sync</a> <a class="sell-stock btn btn-danger btn-sm" data-symbol="${
+              s.stock_symbol
+            }" data-id="${
+              s.id
+            }"><i class="fa fa-university" aria-hidden="true"></i> Sell</a></td>
               </tr>`;
           } else if (parseInt(category_id) === 0) {
             tbodyHtml += `
@@ -121,14 +136,29 @@ $(document).ready(function() {
                 <td>$ ${s.buying_price}</td>
                 <td>$ ${s.total}</td>
                 <td id="stock-gain-${s.id}">$ ${s.stock_gain}</td>
-                <td><a class="sync-stock btn btn-success btn-sm" data-symbol="${s.stock_symbol}" data-id="${s.id}">Sync</a> <a class="sell-stock btn btn-danger btn-sm" data-symbol="${s.stock_symbol}" data-id="${s.id}">Sell</a></td>
+                <td>${moment(s.createdAt).format("MMM D, YYYY")}</td>
+                <td><a class="sync-stock btn btn-success btn-sm" data-symbol="${
+                  s.stock_symbol
+                }" data-id="${
+              s.id
+            }"><i class="fa fa-refresh" aria-hidden="true"></i> Sync</a> <a class="sell-stock btn btn-danger btn-sm" data-symbol="${
+              s.stock_symbol
+            }" data-id="${
+              s.id
+            }"><i class="fa fa-university" aria-hidden="true"></i> Sell</a></td>
               </tr>`;
           }
         });
-        $(".stock-tbody").html(tbodyHtml);
-        $("#span-result").empty();
+        if (tbodyHtml) {
+          $(".stock-tbody").html(tbodyHtml);
+          $("#span-result").empty();
+        } else {
+          $("#span-result").html("No Results to display!");
+        }
+        $("#stock-table-display").show();
       } else {
-        $("#span-result").html("No Results to display!");
+        $("#stock-table-display").hide();
+        // $("#span-result").html("No Results to display!");
       }
     } catch (error) {
       console.log(error);
@@ -139,7 +169,18 @@ $(document).ready(function() {
     const id = $(this).data("id");
     const symbol = $(this).data("symbol");
     // console.log(id);
+    $("#confirmModal").modal("show");
+    $("#confirmModalLabel").html(`Do you really want to sell ${symbol}?`);
+    $("#proceed-sell").data("id", id);
+    $("#proceed-sell").data("symbol", symbol);
+    $("#proceed-sell").html(`Sell ${symbol}`);
+  });
+
+  $("#proceed-sell").on("click", async function() {
     try {
+      const id = $(this).data("id");
+      const symbol = $(this).data("symbol");
+      // console.log(`${id} : ${symbol}`)
       const stockData = await $.get(
         `https://cors-anywhere.herokuapp.com/https://api.tiingo.com/tiingo/daily/${symbol}/prices?token=32eb05433ffa0f75d6c5b3ba881d7b14f1c2a5f5`
       );
@@ -153,7 +194,7 @@ $(document).ready(function() {
       $(`#tr-stock-${id}`).hide();
       // window.location.reload();
       $("#account-balance").text(addCommasToInt(deletedStock.userMoney));
-
+      $("#confirmModal").modal("hide");
       initTable();
       $(".stock-sold-alert")
         .show()
@@ -166,10 +207,40 @@ $(document).ready(function() {
     }
   });
 
-  $(".stock-tbody").on("click", ".sync-stock", function() {
+  $(".stock-tbody").on("click", ".sync-stock", async function() {
     const id = $(this).data("id");
     const symbol = $(this).data("symbol");
-    // console.log(id);
+    try {
+      const stockData = await $.get(
+        `https://cors-anywhere.herokuapp.com/https://api.tiingo.com/tiingo/daily/${symbol}/prices?token=32eb05433ffa0f75d6c5b3ba881d7b14f1c2a5f5`
+      );
+      const currentPrice = stockData[0].adjClose;
+      const stock = { stockId: id, currentStocKPrice: currentPrice };
+      const updatedStock = await $.ajax({
+        url: "/api/stocks/stockgain",
+        type: "PUT",
+        data: stock
+      });
+      if (updatedStock.stockGain < 0) {
+        $(".invalid-alert")
+          .show()
+          .html(updatedStock.alert);
+        setTimeout(() => {
+          $(".invalid-alert").hide();
+        }, 1200);
+      } else {
+        $(".stock-sold-alert")
+          .show()
+          .html(updatedStock.alert);
+        setTimeout(() => {
+          $(".stock-sold-alert").hide();
+        }, 1200);
+      }
+      // console.log(updatedStock);
+      $(`#stock-gain-${id}`).html(`$ ${updatedStock.stockGain}`);
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   initTable();
