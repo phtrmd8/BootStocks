@@ -28,18 +28,20 @@
         <li class="nav-item nav-item-pad" style="font-size: 25px; color: white;">
           <img class="userimage" width="100px" src="../images/test_userpic.jpg">
         </li>
-        <li class="nav-item nav-item-pad" style="font-size: 20px; color: white; margin-top: 20px;">
+        <li class="nav-item nav-item-pad" style="font-size: 20px; color: white;">
           Mock Account Balance: $<span id="account-balance">10,000.00</span>
           <br><br>
-          <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
+          {{!-- <label for="categories" style="font-size: 20px; color: white;">Navigate to:</label>
           <select name="navigate" id="dropdown-navigate">
             <option value="home">Home</option>
             <option value="add-stocks">Add Stocks</option>
             <option value="view-categories">View Categories</option>
-          </select>
+          </select> --}}
+          <a id='add-stocks' class="btn text-dark btn-light" href="/stocks/add">Add Stocks <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+          <a id='view-categories' class="btn text-dark btn-light" href="/categories/view">View Categories <i class="fa fa-eye" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item nav-item-pad">
-          <button id='logout' class="btn btn-light logout-btn" style="margin-top: 50px;" type="logout">Logout <i
+          <button id='logout' class="btn btn-light" style="margin-top: 59px;" type="logout">Logout <i
               class="fa fa-sign-out" aria-hidden="true"></i></button>
         </li>
       </ul>
