@@ -14,7 +14,7 @@ module.exports = function(app) {
   app.get("/api/stocks", auth, function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.Stock.findAll({
-      where: { UserId: req.user.id },
+      where: { UserId: req.user.id, is_sold: 0 },
       include: [db.Category]
     }).then(function(dbStock) {
       // We have access to the stocks as an argument inside of the callback function
@@ -42,7 +42,7 @@ module.exports = function(app) {
           UserId: req.user.id
         }
       });
-
+      // console.log(buyingPrice);
       const newStock = {
         stock_symbol: stockTicker,
         buying_price: buyingPrice,
@@ -54,8 +54,12 @@ module.exports = function(app) {
         total: buyingPrice * quantity,
         stock_quantity: quantity
       };
-      const stockCreated = await db.Stock.create(newStock);
+
       const getOneUser = await db.User.findByPk(req.user.id);
+      if (newStock.total > getOneUser.user_money) {
+        return res.status(500).json("Invalid Transaction!");
+      }
+      const stockCreated = await db.Stock.create(newStock);
       getOneUser.user_money -= newStock.total;
       await getOneUser.save();
       res.status(200).json(stockCreated);
@@ -78,33 +82,54 @@ module.exports = function(app) {
   });
 
   // PUT route for updating stocks. We can get the updated stock data from req.body
-  app.put("/api/stocks", function(req, res) {
+  app.put("/api/stocks", auth, async function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Stock.update(
-      {
-        UserId: req.body.user_id,
-        stock_symbol: req.body.stock_symbol,
-        CategoryId: req.body.category_id,
-        buying_price: req.body.buying_price,
-        current_price: req.body.current_price,
-        stock_gain: req.body.stock_gain,
-        is_sold: req.body.is_sold,
-        stock_quantity: req.body.stock_quantity
-      },
-      {
-        where: {
-          id: req.body.id
-        }
-      }
-    )
-      .then(function(dbStock) {
-        res.json(dbStock);
-      })
-      .catch(function(err) {
-        // Whenever a validation or flag fails, an error is thrown
-        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.json(err);
+    const { stockId, currentStocKPrice } = req.body;
+    try {
+      const currentStock = await db.Stock.findByPk(stockId);
+      const currentUser = await db.User.findByPk(req.user.id);
+      const currentTotal =
+        parseFloat(currentStocKPrice) * parseFloat(currentStock.stock_quantity);
+      // console.log(currentStock);
+      currentStock.stock_gain = currentTotal - currentStock.total;
+      currentStock.is_sold = true;
+      // const currentMoney = ();
+      console.log(`${typeof currentUser.user_money} : ${typeof currentTotal}`);
+      currentUser.user_money =
+        parseFloat(currentUser.user_money) + currentTotal;
+      await currentStock.save();
+      const returnedUser = await currentUser.save();
+      res.status(200).json({
+        alert: `${currentStock.stock_symbol} is sold! You gained ${currentTotal}`,
+        userMoney: returnedUser.user_money
       });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+
+  app.put("/api/stocks/stockgain", auth, async function(req, res) {
+    const { stockId, currentStocKPrice } = req.body;
+    try {
+      const currentStock = await db.Stock.findByPk(stockId);
+      // const currentUser = await db.User.findByPk(req.user.id);
+      const currentTotal =
+        parseFloat(currentStocKPrice) * parseInt(currentStock.stock_quantity);
+      currentStock.stock_gain = currentTotal - parseFloat(currentStock.total);
+      const stock = await currentStock.save();
+      // console.log(currentTotal - parseFloat(currentStock.total));
+      res.status(200).json({
+        stockGain: stock.stock_gain,
+        alert: `${stock.stock_symbol} is synced! ${
+          stock.stock_gain < 0
+            ? "You loss $ " + stock.stock_gain
+            : "You gained $ " + stock.stock_gain
+        }`
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
   });
 };

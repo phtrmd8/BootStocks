@@ -10,10 +10,10 @@
     <div class="col-md-12 col-md-offset-6">
       <h2>Log-in to your Account</h2>
       <form class="login">
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
         <div class="form-group">
           <label for="Username">Username</label>
           <input type="text" class="form-control" id="username" placeholder="Username">
@@ -21,6 +21,10 @@
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="show-pass">
+          <label class="custom-control-label" for="show-pass">Show Password</label>
         </div>
         <button type="submit" class="btn btn-default">Login</button>
       </form>
@@ -31,30 +35,31 @@
 </div>
 <hr>
 <section>
-<body>
-  <div class="row">
-    <div class="column">
-      <h3>Will the Stock Market Crash Again? 5 Risk Factors</h3>
-    <a href="https://money.usnews.com/investing/stock-market-news/articles/will-the-stock-market-crash-again-risk-factors-to-watch">
-      <img src="../images/download.jpeg" alt="download"
-      style="width: 400px; height: 400px;"></a>
-      <br>Check me out!
 
-  </div>
-  <div class="column">
-    <h3>Learn How to Grown Your Wealth in the Stock Market with This Training</h3>
-    <a href="https://www.entrepreneur.com/article/355182">
-      <img src="../images/1598221578-Ent-IntrotoInvesting.jpg" alt="stock market training"
-      style="width: 400px; height: 400px;"></a>
-      <br>Check me out!
-  </div>
-  <div class="column">
-    <h3>Online Stock Trading 101: A Beginner's Guide</h3>
-    <a href="https://www.thebalance.com/stock-trading-101-358115">
-      <img src="../images/stock-trading-101-358115_V3-37f97e70c6df4b748ba5cb19942ef6a9.gif" alt="stock-trading"
-      style="width: 400px; height: 400px;"></a>
-      <br>Check me out!
-  </div>
+  <body>
+    <div class="row">
+      <div class="column">
+        <h3>Will the Stock Market Crash Again? 5 Risk Factors</h3>
+        <a
+          href="https://money.usnews.com/investing/stock-market-news/articles/will-the-stock-market-crash-again-risk-factors-to-watch">
+          <img src="../images/download.jpeg" alt="download" style="width: 400px; height: 400px;"></a>
+        <br>Check me out!
+
+      </div>
+      <div class="column">
+        <h3>Learn How to Grown Your Wealth in the Stock Market with This Training</h3>
+        <a href="https://www.entrepreneur.com/article/355182">
+          <img src="../images/1598221578-Ent-IntrotoInvesting.jpg" alt="stock market training"
+            style="width: 400px; height: 400px;"></a>
+        <br>Check me out!
+      </div>
+      <div class="column">
+        <h3>Online Stock Trading 101: A Beginner's Guide</h3>
+        <a href="https://www.thebalance.com/stock-trading-101-358115">
+          <img src="../images/stock-trading-101-358115_V3-37f97e70c6df4b748ba5cb19942ef6a9.gif" alt="stock-trading"
+            style="width: 400px; height: 400px;"></a>
+        <br>Check me out!
+      </div>
   </body>
 </section>
 <br>
@@ -62,9 +67,15 @@
 <section>
   <div class="video"></div>
   <h4>How Does the Stock Market Work?</h4>
-    <center><iframe width="660" height="415" src="https://www.youtube.com/embed/p7HKvqRI_Bo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
-  </div>  
+  <center><iframe width="660" height="415" src="https://www.youtube.com/embed/p7HKvqRI_Bo" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe></center>
+  </div>
   <br>
 </section>
 <br>
 <br>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/utils/setHeader.js"></script>
+<script type="text/javascript" src="../js/login.js"></script>

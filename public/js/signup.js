@@ -1,23 +1,23 @@
 $(document).ready(function () {
   //Appending JS Files
-  (async function(){
+  (async function () {
     await $.getScript("js/utils/isPublic.js");
   })();
+
+  const password = $('#password-input');
+  const cpassword = $('#cpassword-input');
 
   $('.signup').on('submit', function (e) {
     e.preventDefault();
     const firstname = $('#firstname').val().trim();
     const lastname = $('#lastname').val().trim();
     const username = $('#username').val().trim();
-    const email = $('#email-input').val().trim();
-    const password = $('#password-input').val().trim();
-    const cpassword = $('#cpassword-input').val().trim();
-
-    const userData = { firstname: firstname, lastname: lastname, username : username, email: email, password : password ,cpassword : cpassword };
+    // const email = $('#email-input').val().trim();
+    const userData = { firstname: firstname, lastname: lastname, username: username, password: password.val().trim(), cpassword: cpassword.val().trim() };
     createUser(userData);
   });
 
-  function stateAlert(msg){
+  function stateAlert(msg) {
     $('#alert').show();
     $('#alert > .msg').html(msg);
     setTimeout(() => { $("#alert").hide(); }, 1000);
@@ -34,4 +34,14 @@ $(document).ready(function () {
         stateAlert(err.responseJSON);
       })
   };
+
+  $('#show-pass').on('click', function (e) {
+    if ($(this).prop("checked")) {
+      password.attr('type', 'input');
+      cpassword.attr('type', 'input');
+    } else {
+      password.attr('type', 'password');
+      cpassword.attr('type', 'password');
+    }
+  });
 });

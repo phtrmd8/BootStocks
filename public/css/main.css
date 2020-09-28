@@ -20,7 +20,7 @@ h1  {
 }
 button  {
   background-color: grey; /* Green */
-  color: black;
+  color: white;
   border: round 2px solid #e7e7e7
 }
 button :hover {background-color: #e7e7e7;}
@@ -41,11 +41,12 @@ h4  {
   text-align: center;
   font-style: unset;
 }
-.container {
+
+/* .container {
   float: center;
   width: 33.33%;
   padding: 5px;
-}
+} */
 
 /* Clearfix (clear floats) */
 .row::after {
@@ -77,3 +78,11 @@ video {
   text-align: center;
   padding-top: 5px;
 }
+
+.jumbotron {
+  padding: 1.5rem 2rem;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+} 
