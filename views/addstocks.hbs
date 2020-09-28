@@ -37,7 +37,13 @@
         <div class="form-group mt-2">
           <input type="number" class="form-control " id="quantity" placeholder="Quantity" />
         </div>
-        <div class="submit-container float-right">
+        <div class="input-group mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Total $</span>
+          </div>
+          <input type="input" disabled="disabled" class="form-control " id="total" placeholder="Total Price" />
+        </div>
+        <div class="submit-container float-right mt-2">
           <div id="spinner-submit" class="spinner-border text-primary" role="status" style="display: none;">
             <span class="sr-only">Loading...</span>
           </div>

@@ -86,6 +86,7 @@ $(document).ready(function() {
       // console.log(stockData);
       $("#stock-ticker").val(symbol);
       $("#buying-price").val(stockData[0].adjClose);
+      updateTotal();
     } catch (error) {
       stateAlert("Server Error");
       unDisableSubBtn();
@@ -121,4 +122,21 @@ $(document).ready(function() {
       stateAlert("All fields are required!");
     }
   });
+
+  function updateTotal() {
+    const quantity = $("#quantity")
+      .val()
+      .trim();
+    const buyingPrice = $("#buying-price")
+      .val()
+      .trim();
+    const total = $("#total");
+    // console.log(`${quantity} : ${buyingPrice}`);
+    if (quantity && buyingPrice) {
+      const totalPrice = parseFloat(buyingPrice) * parseInt(quantity);
+      total.val(addCommasToInt(parseFloat(totalPrice)));
+    }
+  }
+  // $(".add-stock-form").on("trigger", "#buying-price", updateTotal);
+  $(".add-stock-form").on("keyup", "#quantity", updateTotal);
 });
