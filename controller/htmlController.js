@@ -33,11 +33,11 @@ module.exports = function(app) {
 
   // categories route loads categories.html
   app.get("/categories/view", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/viewcats.html"));
+    res.render('categories', {layout:'main'})
   });
 
   app.get("/stocks/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/addstocks.html"));
+    res.render('addstocks', {layout: 'member'})
   });
 
   app.get("/categories/add", function(req, res) {
