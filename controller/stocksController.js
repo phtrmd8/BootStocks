@@ -90,7 +90,7 @@ module.exports = function(app) {
       const currentStock = await db.Stock.findByPk(stockId);
       const currentUser = await db.User.findByPk(req.user.id);
       const currentTotal =
-        parseFloat(currentStocKPrice) * parseInt(currentStock.stock_quantity);
+        parseFloat(currentStocKPrice) * parseFloat(currentStock.stock_quantity);
       // console.log(currentStock);
       currentStock.stock_gain = currentTotal - currentStock.total;
       currentStock.is_sold = true;
@@ -105,6 +105,30 @@ module.exports = function(app) {
         userMoney: returnedUser.user_money
       });
     } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+
+  app.put("/api/stocks/stockgain", auth, async function(req, res) {
+    const { stockId, currentStocKPrice } = req.body;
+    try {
+      const currentStock = await db.Stock.findByPk(stockId);
+      // const currentUser = await db.User.findByPk(req.user.id);
+      const currentTotal =
+        parseFloat(currentStocKPrice) * parseInt(currentStock.stock_quantity);
+      currentStock.stock_gain = currentTotal - parseFloat(currentStock.total);
+      const stock = await currentStock.save();
+      // console.log(currentTotal - parseFloat(currentStock.total));
+      res.status(200).json({
+        stockGain: stock.stock_gain,
+        alert: `${stock.stock_symbol} is synced! ${
+          stock.stock_gain < 0
+            ? "You loss $ " + stock.stock_gain
+            : "You gained $ " + stock.stock_gain
+        }`
+      });
+    } catch (error) {
+      console.log(error);
       res.status(500).json(error);
     }
   });
