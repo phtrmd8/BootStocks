@@ -24,3 +24,9 @@ h2  {
   clear: both;
   display: table;
 }
+button  {
+  background-color: grey; /* Green */
+  color: black;
+  border: round 2px solid #e7e7e7
+}
+button :hover {background-color: #e7e7e7;}

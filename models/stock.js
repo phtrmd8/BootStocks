@@ -8,19 +8,19 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     buying_price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false
     },
     current_price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
     stock_gain: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(8, 2),
       allowNull: false
     },
     total: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
     is_sold: {
