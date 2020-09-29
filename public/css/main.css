@@ -4,9 +4,9 @@ body {
     background-repeat: no-repeat;
     background-position: center;
   }
-/* nav {
+nav {
   background-color: #158cba;
-} */
+}
 img {
   padding-left: 10px;
 }
@@ -68,8 +68,7 @@ h4  {
 video {
   margin-bottom: 50%;
 }
-
-/* .footer {
+.footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -78,7 +77,7 @@ video {
   color: white;
   text-align: center;
   padding-top: 5px;
-} */
+}
 
 .jumbotron {
   padding: 1.5rem 2rem;
@@ -87,18 +86,3 @@ video {
 .navbar .navbar-collapse {
   text-align: center;
 } 
-
-footer {
-  clear: both;
-  font-size: 15px;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: -90px;
-  border-top: 8px solid black;
-  background: #007bff;
-  color: white;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
