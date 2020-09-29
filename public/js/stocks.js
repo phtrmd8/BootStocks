@@ -134,7 +134,9 @@ $(document).ready(function() {
     // console.log(`${quantity} : ${buyingPrice}`);
     if (quantity && buyingPrice) {
       const totalPrice = parseFloat(buyingPrice) * parseInt(quantity);
-      total.val(addCommasToInt(parseFloat(totalPrice)));
+      total.val(addCommasToInt(parseFloat(totalPrice).toFixed(2)));
+    } else {
+      total.val("");
     }
   }
   // $(".add-stock-form").on("trigger", "#buying-price", updateTotal);
