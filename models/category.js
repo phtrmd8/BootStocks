@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Category.hasMany(models.Stock, {
+      onDelete: "cascade"
+    });
   };
 
   return Category;
