@@ -1,9 +1,3 @@
-// view all stocks under a particular category
-// view all categories in viewcats page...
-//  edit (add or change name) button
-
-
-
 $(document).ready(function () {
     (async function () {
         try {
@@ -12,103 +6,90 @@ $(document).ready(function () {
             console.log(error);
         }
     })();
-
     // categoryContainer holds all categories
     var categoryContainer = $(".category-container");
     var stockCategorySelect = $("#category");
-    // Click events for the edit button
-    $(document).on("click", "button.edit", handleCategoryEdit);
 
-    // Variable to hold our stocks
-    var stocks;
-
-    // The code below handles the case where users want to get all stock names under a specific category
-    // Looks for a query param in the url for categories_id
-    var url = window.location.search;
-    var categoryId;
-    if (url.indexOf("?categories_id=") !== -1) {
-        categoryId = url.split("=")[1];
-        getCategoryData(categoryId, "stocks");
-    }
-    // If there's no categoryId, users just get all categories as usual
-    else {
-        getCategoryData();
-    }
-
-
-    // This function grabs categories from the database & updates the view (add)
-    function getCategoryData(category) {
-        categoryId = category || "";
-        if (categoryId) {
-            categoryId = "/?categories_id=" + categoryId;
-        }
-        $.get("/api/categories" + categoryId, function (data) {
-            console.log("Categories", data);
-            categories = data;
-            if (!categories || !categories.length) {
-                displayEmpty(category);
-            }
-            else {
-                initializeRows();
-            }
-        });
-    }
-
-
-    // =========== (change cat_name)
     // Getting the initial list of Categories
     getCategories();
 
     // Function for creating a category. Calls getCategories upon completion
     function upsertCategory(categoryData) {
-        $.category("/api/categories", categoryData)
-            .then(getCategories);
+        $.category("/api/categories", categoryData).then(getCategories);
     }
 
     // Function for creating a new list row for categories
-    function createCategoryRow(categoryData) {
-        var newTr = $("<tr>");
-        newTr.data("category", categoryData);
-        newTr.append("<td>" + categoryData.name + "</td>");
-        if (categoryData.Stocks) {
-            newTr.append("<td> " + categoryData.Stocks.length + "</td>");
-        } else {
-            newTr.append("<td>0</td>");
-        }
-        return newTr;
-    }
+    // function createCategoryRow(categoryData) {
+    //     var newTr = $("<tr>");
+    //     newTr.data("category", categoryData);
+    //     newTr.append("<td>" + categoryData.name + "</td>");
+    //     newTr.append(
+    //         "<td>" + moment(categoryData.createdAt).format("MMM D, YYYY") + "</td>"
+    //     );
+    //     return newTr;
+    // }
 
     // Function for retrieving categories & getting them ready to be rendered to the page
     function getCategories() {
-        $.get("/api/categories", function (data) {
-            var rowsToAdd = [];
+        $.get("/api/categories").then(function (data) {
+            var rowsToAdd = "";
             for (var i = 0; i < data.length; i++) {
-                rowsToAdd.push(createCategoryRow(data[i]));
+                rowsToAdd += createCategoryRow(data[i]);
             }
-            renderCategoryList(rowsToAdd);
-            nameInput.val("");
+            // renderCategoryList(rowsToAdd);
+            $(".category-tbody").html(rowsToAdd)
         });
     }
 
+    // FOR EDITTING
     // Function for rendering the list of categories to the page
-    function renderCategoryList(rows) {
-        categoryList.children().not(":last").remove();
-        categoryContainer.children(".alert").remove();
-        if (rows.length) {
-            console.log(rows);
-            categoryList.prepend(rows);
-        }
-        else {
-            renderEmpty();
+    // function renderCategoryList(rows) {
+    //     categoryList
+    //         .children()
+    //         .not(":last")
+    //         .remove();
+    //     categoryContainer.children(".alert").remove();
+    //     if (rows.length) {
+    //         console.log(rows);
+    //         categoryList.prepend(rows);
+    //     } else {
+    //         renderEmpty();
+    //     }
+    // }
+
+    async function initTable(category_id = 0) {
+        try {
+            const categories = await $.get("/api/categories");
+            if (categories.length > 0) {
+                let tbodyHtml = "";
+                categories.forEach(s => {
+                    if (parseInt(category_id) === s.Category.id) {
+                        tbodyHtml += `
+              <tr id='tr-category-${s.id}'>
+                <td>${s.Category.name}</td>
+                <td>${moment(s.createdAt).format("MMM D, YYYY")}</td>`;
+                    } else if (parseInt(category_id) === 0) {
+                        tbodyHtml += `
+              <tr id='tr-category-${s.id}'>
+                <td>${s.Category.name}</td>
+                <td>${moment(s.createdAt).format("MMM D, YYYY")}</td>`;
+                    }
+                });
+                if (tbodyHtml) {
+                    $(".category-tbody").html(tbodyHtml);
+                    $("#span-result").empty();
+                } else {
+                    $(".category-tbody").empty();
+                    $("#span-result").html("No Results to display!");
+                }
+                $("#category-table-display").show();
+            } else {
+                $("#category-table-display").hide();
+                $("#span-result").html("No Results to display!");
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
-    // Function for figuring out which category we want to edit and takes it to the appropriate url
-    function handleCategoryEdit() {
-        var currentCategory = $(this)
-            .parent()
-            .parent()
-            .data("category");
-        window.location.href = "/cms?categories_id=" + currentCategory.id;
-    }
 });
