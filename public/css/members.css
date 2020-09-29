@@ -21,3 +21,18 @@
 .chart-input {
   margin-right: 20px;
 }
+
+footer {
+  clear: both;
+  font-size: 15px;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: -90px;
+  border-top: 8px solid black;
+  background: #007bff;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
