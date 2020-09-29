@@ -1,6 +1,6 @@
 <div class="container" style="text-align: center;">
 
-  <form>
+  {{!-- <form>
     <label for="categories">Select a Stock Category:</label>
     <select name="stocks" id="stocks">
       <option value="high-risk">High Risk</option>
@@ -8,28 +8,31 @@
       <option value="dividend">Dividend</option>
     </select>
     <input type="submit" value="View">
-  </form>
+  </form> --}}
 
   <br>
   <br>
 
   <div class="container">
-    <h1 style="text-align: center;">Category: <span id='category-name'></span></h1>
+    <h1 style="text-align: center;">Categories</h1>
     <br>
     <div class="table-responsive">
-      <table class="table table-striped table-sm">
+      <table class="table table-striped table-sm categories-table">
         <thead style="font-size: 15px;">
           <tr>
-            <th>ID</th>
-            <th>User ID</th>
-            <th>Stock Symbol</th>
-            <th>Category</th>
-            <th>Stock Quantity</th>
-            <th>Buying Price</th>
-            <th>Current Price</th>
-            <th>Is Sold?</th>
+            {{!-- <th>ID</th> --}}
+            {{!-- <th>User ID</th> --}}
+            {{!-- <th>Stock Symbol</th> --}}
+            <th>Category Name</th>
+            {{!-- <th>Stock Quantity</th> --}}
+            {{!-- <th>Buying Price</th> --}}
+            <th>Date Created</th>
+            {{!-- <th>Actions</th> --}}
           </tr>
         </thead>
+        <tbody class="category-tbody">
+
+        </tbody>
       </table>
     </div>
   </div>
