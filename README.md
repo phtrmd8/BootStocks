@@ -9,8 +9,10 @@ UCI Project 2 (Team Members: Jeorge Donato, Lauren Goettsch, Duyen Pham, Raymond
 * User Story
 * Technology Used
 * Installation
-* Usage
 * Contributing
+* Github Link
+* Heroku Deployed Link
+* Screenshots
 
 
 ## Motivation
@@ -44,7 +46,7 @@ WHERE I CAN make watchlists and mock portfolios
 * Express
 * Handlebars
 * JavaScript
-* Node JS
+* Node.js
 * MySQL
 * Sequelize
 * Moment.js
@@ -53,18 +55,24 @@ WHERE I CAN make watchlists and mock portfolios
 
 ## Installation
 
-
-
-## Usage
-
+* Open your terminal in the BootStocks directory and type in "npm start"
+* Go to http://localhost:3306/ in your browser
 
 
 ## Contributing
 
+* Jeorge Donato https://github.com/jeorgedonato
+* Lauren Goettsch https://github.com/laurlaur2181
+* Duyen Pham https://github.com/phtrmd8
+* Raymond Tieu https://github.com/raytieu
 
 
-## Link:
+## Github Link:
 https://github.com/phtrmd8/BootStocks
+
+
+## Heroku Deployed Link:
+https://bootstocks.herokuapp.com/
 
 
 ## Screenshots:
