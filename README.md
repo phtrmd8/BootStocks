@@ -64,10 +64,11 @@ WHERE I CAN make watchlists and mock portfolios
 
 
 ## Link:
-https://raytieu.github.io/to-make-or-to-go/
+https://github.com/phtrmd8/BootStocks
 
-## Application's Screenshots:
-![Image 1](./asset/p1.png)
 
-![Image 2](./asset/p2.png)
+## Screenshots:
+![Image 1](./public/images/readme_ss_1.PNG)
+
+![Image 2](./public/images/readme_ss_2.PNG)
 
