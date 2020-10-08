@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var exphbs = require('express-handlebars')
+var compression = require('compression')
 
 // Sets up the Express App
 // =============================================================
@@ -30,6 +31,9 @@ app.use(express.static("public"));
 //     if (req.originalUrl === "/") res.render("index");
 //     else res.render(req.originalUrl.slice(1));
 // });
+
+// compress all responses
+app.use(compression())
 
 // Controllers
 // =============================================================
